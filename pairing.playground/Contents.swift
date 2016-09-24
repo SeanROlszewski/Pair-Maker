@@ -1,7 +1,11 @@
 import UIKit
 import Darwin
 
-struct Engineer {
+func == (lhs: Engineer, rhs: Engineer) -> Bool {
+    return lhs.name == rhs.name && lhs.company == rhs.company
+}
+
+struct Engineer: Equatable {
     let name: String
     let company: String
     
@@ -9,23 +13,30 @@ struct Engineer {
         self.name = name
         self.company = company
     }
-    
-    init() {
-        self.name = ""
-        self.company = ""
+}
+
+func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> Bool {
+    guard engineers.count >= 2 else {
+        return false
     }
+    
+    for engineerOne in engineers {
+        for engineerTwo in engineers {
+            if engineerOne != engineerTwo && predicate(engineerOne, engineerTwo) {
+                return true
+            }
+        }
+    }
+    
+    return false
 }
 
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> [(Engineer, Engineer)]? {
 
-    guard engineers.count % 2 == 0 else {
-        return nil
-    }
-    
     var engineers = engineers
     var pairs = [(Engineer, Engineer)]()
     
-    while engineers.count > 0 {
+    while canMakePairs(fromEngineers: engineers, withPredicate: predicate) {
         
         let engineerOne = engineers[0]
         
@@ -46,10 +57,6 @@ func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate:
     return pairs
 }
 
-func testItDoesNotpairOddNumberOfEngineers() {
-    let oddNumberOfEngineersCantPair = generatePairs(fromEngineers: [Engineer(), Engineer(), Engineer()]) {(_, _) in return true} == nil
-    print("The 'generatePairs' function returns 'nil' when there are an odd number of engineers: \(oddNumberOfEngineersCantPair)")
-}
 func testItPairsEngineersOfDifferentCompanies() {
 
     let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
@@ -86,14 +93,52 @@ func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
         return engineerOne.company != engineerTwo.company
         
     }
-
+ 
     let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
         result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
     }
     print("List of pairs: \(pairNames)")
 }
 
+func testPairsEngineersFromSameCompany() {
+    
+    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
+    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
+    let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
+    let engineerFour: Engineer = Engineer(name: "David", company: "Google")
+//    let engineerFive: Engineer = Engineer(name: "Eric", company: "Twitter")
+    
+    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
+        
+        return engineerOne.company == engineerTwo.company
+        
+    }
+    
+    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
+        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
+    }
+    print("List of pairs: \(pairNames)")
+}
 
-testItDoesNotpairOddNumberOfEngineers()
+//func testPairsEngineersFromSameCompany() {
+//    
+//    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
+//    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
+//    let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
+//    let engineerFour: Engineer = Engineer(name: "David", company: "Google")
+//    
+//    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
+//        
+//        return engineerOne.company == engineerTwo.company
+//        
+//    }
+//    
+//    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
+//        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
+//    }
+//    print("List of pairs: \(pairNames)")
+//}
+
 testItPairsEngineersOfDifferentCompanies()
 testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies()
+testPairsEngineersFromSameCompany()
