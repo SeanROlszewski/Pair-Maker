@@ -154,7 +154,10 @@ func testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote() {
     
     printOut(pairs: result.pairs)
     printOut(leftovers: result.unpaired)
-    
+    let resultTwo = generatePairs(fromEngineers: result.unpaired) { (_, _) -> (Bool) in
+        return true
+    }
+    printOut(pairs: resultTwo.pairs)
 }
 
 
@@ -162,3 +165,4 @@ testItPairsEngineersOfDifferentCompanies()
 testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies()
 testPairsEngineersFromSameCompany()
 testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote()
+
