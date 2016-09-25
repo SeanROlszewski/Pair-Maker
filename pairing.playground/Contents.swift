@@ -57,6 +57,25 @@ func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate:
     return (pairs, engineers)
 }
 
+func printOut(pairs: [(Engineer, Engineer)]) {
+    print("----------------")
+    print("List of pairs: ")
+    print()
+    for pair in pairs {
+        print("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
+        
+    }
+}
+
+func printOut(leftovers: [Engineer]) {
+    print()
+    print("Leftovers: ")
+    print()
+    for engineer in leftovers {
+        print("\(engineer.name) from \(engineer.company)")
+    }
+}
+
 func testItPairsEngineersOfDifferentCompanies() {
 
     let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
@@ -68,19 +87,15 @@ func testItPairsEngineersOfDifferentCompanies() {
 
     
     
-    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (engineerOne, engineerTwo) in
-        
-            return engineerOne.company != engineerTwo.company
-        
-        }
+    let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (engineerOne, engineerTwo) in
     
+        return engineerOne.company != engineerTwo.company
     
-    
-    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
-        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
     }
-    print("List of pairs: \(pairNames)")
+    printOut(pairs: result.pairs)
+    printOut(leftovers: result.unpaired)
 }
+
 func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
     
     let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
@@ -88,16 +103,13 @@ func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
     let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
     let engineerFour: Engineer = Engineer(name: "David", company: "Google")
 
-    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
-        
+    let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
         return engineerOne.company != engineerTwo.company
-        
     }
  
-    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
-        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
-    }
-    print("List of pairs from three companies: \(pairNames)")
+    printOut(pairs: result.pairs)
+    printOut(leftovers: result.unpaired)
+
 }
 
 func testPairsEngineersFromSameCompany() {
@@ -107,16 +119,13 @@ func testPairsEngineersFromSameCompany() {
     let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
     let engineerFour: Engineer = Engineer(name: "David", company: "Google")
     
-    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
-        
+    let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
         return engineerOne.company == engineerTwo.company
-        
     }
-    
-    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
-        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
-    }
-    print("List of pairs: \(pairNames)")
+
+    printOut(pairs: result.pairs)
+    printOut(leftovers: result.unpaired)
+
 }
 
 testItPairsEngineersOfDifferentCompanies()
