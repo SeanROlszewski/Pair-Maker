@@ -14,6 +14,9 @@
 		47B147591D98402100DDB71C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B147571D98402100DDB71C /* LaunchScreen.storyboard */; };
 		47B147641D98402100DDB71C /* Pair_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B147631D98402100DDB71C /* Pair_MakerTests.swift */; };
 		47B1476F1D98402100DDB71C /* Pair_MakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1476E1D98402100DDB71C /* Pair_MakerUITests.swift */; };
+		47B1477D1D9840E900DDB71C /* Pairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1477C1D9840E900DDB71C /* Pairing.swift */; };
+		47B1477E1D98413F00DDB71C /* Pairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1477C1D9840E900DDB71C /* Pairing.swift */; };
+		47B147801D98435100DDB71C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1477F1D98435100DDB71C /* CollectionExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,8 @@
 		47B1476A1D98402100DDB71C /* Pair MakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pair MakerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B1476E1D98402100DDB71C /* Pair_MakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair_MakerUITests.swift; sourceTree = "<group>"; };
 		47B147701D98402100DDB71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47B1477C1D9840E900DDB71C /* Pairing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pairing.swift; sourceTree = "<group>"; };
+		47B1477F1D98435100DDB71C /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,8 @@
 				47B147551D98402100DDB71C /* Assets.xcassets */,
 				47B147571D98402100DDB71C /* LaunchScreen.storyboard */,
 				47B1475A1D98402100DDB71C /* Info.plist */,
+				47B1477C1D9840E900DDB71C /* Pairing.swift */,
+				47B1477F1D98435100DDB71C /* CollectionExtensions.swift */,
 			);
 			path = "Pair Maker";
 			sourceTree = "<group>";
@@ -260,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B147511D98402100DDB71C /* ViewController.swift in Sources */,
+				47B147801D98435100DDB71C /* CollectionExtensions.swift in Sources */,
 				47B1474F1D98402100DDB71C /* AppDelegate.swift in Sources */,
+				47B1477D1D9840E900DDB71C /* Pairing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B1477E1D98413F00DDB71C /* Pairing.swift in Sources */,
 				47B147641D98402100DDB71C /* Pair_MakerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
