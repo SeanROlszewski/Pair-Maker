@@ -38,6 +38,7 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     return false
 }
 
+
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (pairs: [(Engineer, Engineer)], unpaired: [Engineer]) {
 
     var engineers = engineers
