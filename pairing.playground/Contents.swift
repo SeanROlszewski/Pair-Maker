@@ -8,10 +8,17 @@ func == (lhs: Engineer, rhs: Engineer) -> Bool {
 struct Engineer: Equatable {
     let name: String
     let company: String
+    let remote: Bool
     
     init(name: String, company: String) {
         self.name = name
         self.company = company
+        self.remote = false
+    }
+    init(name: String, company: String, remote: Bool) {
+        self.name = name
+        self.company = company
+        self.remote = remote
     }
 }
 
@@ -76,14 +83,18 @@ func printOut(leftovers: [Engineer]) {
     }
 }
 
+
+// TESTS BELOW
+
+
 func testItPairsEngineersOfDifferentCompanies() {
 
-    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
-    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
-    let engineerThree: Engineer = Engineer(name: "Carl", company: "Alphabet")
-    let engineerFour: Engineer = Engineer(name: "David", company: "Apple")
-    let engineerFive: Engineer = Engineer(name: "Eddy", company: "Apple")
-    let engineerSix: Engineer = Engineer(name: "Frank", company: "Apple")
+    let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
+    let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
+    let engineerThree = Engineer(name: "Carl", company: "Alphabet")
+    let engineerFour = Engineer(name: "David", company: "Apple")
+    let engineerFive = Engineer(name: "Eddy", company: "Apple")
+    let engineerSix = Engineer(name: "Frank", company: "Apple")
 
     
     
@@ -98,10 +109,10 @@ func testItPairsEngineersOfDifferentCompanies() {
 
 func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
     
-    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
-    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
-    let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
-    let engineerFour: Engineer = Engineer(name: "David", company: "Google")
+    let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
+    let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
+    let engineerThree = Engineer(name: "Carl", company: "Apple")
+    let engineerFour = Engineer(name: "David", company: "Google")
 
     let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
         return engineerOne.company != engineerTwo.company
@@ -114,10 +125,10 @@ func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
 
 func testPairsEngineersFromSameCompany() {
     
-    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
-    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
-    let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
-    let engineerFour: Engineer = Engineer(name: "David", company: "Google")
+    let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
+    let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
+    let engineerThree = Engineer(name: "Carl", company: "Apple")
+    let engineerFour = Engineer(name: "David", company: "Google")
     
     let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
         return engineerOne.company == engineerTwo.company
@@ -128,6 +139,26 @@ func testPairsEngineersFromSameCompany() {
 
 }
 
+func testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote() {
+    
+    let engineerOne = Engineer(name: "Alfred", company: "Alphabet", remote: true)
+    let engineerTwo = Engineer(name: "Billy", company: "Alphabet", remote: false)
+    let engineerThree = Engineer(name: "Carl", company: "Apple", remote: true)
+    let engineerFour = Engineer(name: "David", company: "Apple", remote: false)
+    let engineerFive = Engineer(name: "Eric", company: "Facebook", remote: false)
+    let engineerSix = Engineer(name: "Frank", company: "Twitter", remote: false)
+    
+    let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (engineerOne, engineerTwo) in
+        return engineerOne.company != engineerTwo.company && engineerOne.remote != engineerTwo.remote
+    }
+    
+    printOut(pairs: result.pairs)
+    printOut(leftovers: result.unpaired)
+    
+}
+
+
 testItPairsEngineersOfDifferentCompanies()
 testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies()
 testPairsEngineersFromSameCompany()
+testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote()
