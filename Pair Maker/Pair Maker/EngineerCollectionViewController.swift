@@ -3,10 +3,21 @@ import UIKit
 class EngineerCollectionViewController: UICollectionViewController {
     var engineers = [Engineer]()
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         engineers.append(Engineer(name: "Alfred", company: "Alphabet", remote: true))
+        print("view did load")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView?.reloadData()
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
