@@ -39,7 +39,7 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
 }
 
 
-func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (pairs: [(Engineer, Engineer)], unpaired: [Engineer]) {
+func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
 
     var engineers = engineers
     var pairs = [(Engineer, Engineer)]()
@@ -75,11 +75,11 @@ func printOut(pairs: [(Engineer, Engineer)]) {
     }
 }
 
-func printOut(leftovers: [Engineer]) {
+func printOut(unpaired: [Engineer]) {
     print()
-    print("Leftovers: ")
+    print("unpaired: ")
     print()
-    for engineer in leftovers {
+    for engineer in unpaired {
         print("\(engineer.name) from \(engineer.company)")
     }
 }
@@ -104,8 +104,8 @@ func testItPairsEngineersOfDifferentCompanies() {
         return engineerOne.company != engineerTwo.company
     
     }
-    printOut(pairs: result.pairs)
-    printOut(leftovers: result.unpaired)
+    printOut(pairs: result.paired)
+    printOut(unpaired: result.unpaired)
 }
 
 func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
@@ -119,8 +119,8 @@ func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
         return engineerOne.company != engineerTwo.company
     }
  
-    printOut(pairs: result.pairs)
-    printOut(leftovers: result.unpaired)
+    printOut(pairs: result.paired)
+    printOut(unpaired: result.unpaired)
 
 }
 
@@ -135,8 +135,8 @@ func testPairsEngineersFromSameCompany() {
         return engineerOne.company == engineerTwo.company
     }
 
-    printOut(pairs: result.pairs)
-    printOut(leftovers: result.unpaired)
+    printOut(pairs: result.paired)
+    printOut(unpaired: result.unpaired)
 
 }
 
@@ -153,12 +153,12 @@ func testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote() {
         return engineerOne.company != engineerTwo.company && engineerOne.remote != engineerTwo.remote
     }
     
-    printOut(pairs: result.pairs)
-    printOut(leftovers: result.unpaired)
+    printOut(pairs: result.paired)
+    printOut(unpaired: result.unpaired)
     let resultTwo = generatePairs(fromEngineers: result.unpaired) { (_, _) -> (Bool) in
         return true
     }
-    printOut(pairs: resultTwo.pairs)
+    printOut(pairs: resultTwo.paired)
 }
 
 
