@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import Darwin
 
 func == (lhs: Engineer, rhs: Engineer) -> Bool {
@@ -31,7 +31,7 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     return false
 }
 
-func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> [(Engineer, Engineer)]? {
+func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (pairs: [(Engineer, Engineer)], unpaired: [Engineer]) {
 
     var engineers = engineers
     var pairs = [(Engineer, Engineer)]()
@@ -54,7 +54,7 @@ func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate:
         }
     }
     
-    return pairs
+    return (pairs, engineers)
 }
 
 func testItPairsEngineersOfDifferentCompanies() {
@@ -76,7 +76,7 @@ func testItPairsEngineersOfDifferentCompanies() {
     
     
     
-    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
+    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
         result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
     }
     print("List of pairs: \(pairNames)")
@@ -94,10 +94,10 @@ func testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies() {
         
     }
  
-    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
+    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
         result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
     }
-    print("List of pairs: \(pairNames)")
+    print("List of pairs from three companies: \(pairNames)")
 }
 
 func testPairsEngineersFromSameCompany() {
@@ -106,7 +106,6 @@ func testPairsEngineersFromSameCompany() {
     let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
     let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
     let engineerFour: Engineer = Engineer(name: "David", company: "Google")
-//    let engineerFive: Engineer = Engineer(name: "Eric", company: "Twitter")
     
     let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
         
@@ -114,30 +113,11 @@ func testPairsEngineersFromSameCompany() {
         
     }
     
-    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
+    let pairNames = pairedEngineersOfDifferentCompanies.pairs.reduce("") { (result, pair) -> String in
         result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
     }
     print("List of pairs: \(pairNames)")
 }
-
-//func testPairsEngineersFromSameCompany() {
-//    
-//    let engineerOne: Engineer = Engineer(name: "Alfred", company: "Alphabet")
-//    let engineerTwo: Engineer = Engineer(name: "Billy", company: "Alphabet")
-//    let engineerThree: Engineer = Engineer(name: "Carl", company: "Apple")
-//    let engineerFour: Engineer = Engineer(name: "David", company: "Google")
-//    
-//    let pairedEngineersOfDifferentCompanies = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (engineerOne, engineerTwo) in
-//        
-//        return engineerOne.company == engineerTwo.company
-//        
-//    }
-//    
-//    let pairNames = pairedEngineersOfDifferentCompanies?.reduce("") { (result, pair) -> String in
-//        result.appending("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
-//    }
-//    print("List of pairs: \(pairNames)")
-//}
 
 testItPairsEngineersOfDifferentCompanies()
 testItMakesPairsWithEvenNumberEngineersAndOddNumberCompanies()
