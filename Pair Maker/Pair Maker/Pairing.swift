@@ -15,6 +15,7 @@ struct Engineer: Equatable {
         self.company = company
         self.remote = false
     }
+    
     init(name: String, company: String, remote: Bool) {
         self.name = name
         self.company = company

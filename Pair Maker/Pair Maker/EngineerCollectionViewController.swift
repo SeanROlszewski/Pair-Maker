@@ -7,12 +7,14 @@ class EngineerCollectionViewController: UICollectionViewController, AddEngineerV
         super.init(coder: aDecoder)
         
         engineers = [
-            Engineer(name: "Alfred", company: "Alphabet", remote: true),
-            Engineer(name: "Billy", company: "Alphabet", remote: true),
-            Engineer(name: "Carl", company: "Alphabet", remote: true),
-            Engineer(name: "David", company: "Apple", remote: false),
-            Engineer(name: "Eddy", company: "Apple", remote: false),
-            Engineer(name: "Frank", company: "Apple", remote: false),
+            Engineer(name: "Sean", company: "Pivotal", remote: false),
+            Engineer(name: "Brian", company: "Pivotal", remote: false),
+            Engineer(name: "Liam", company: "Pivotal", remote: false),
+            Engineer(name: "Dan", company: "Pivotal", remote: false),
+            Engineer(name: "Faith", company: "Travelers", remote: true),
+            Engineer(name: "Dave", company: "Travelers", remote: true),
+            Engineer(name: "Don", company: "Travelers", remote: true),
+            Engineer(name: "Mark", company: "Travelers", remote: true),
         ]
     }
     
@@ -47,7 +49,8 @@ class EngineerCollectionViewController: UICollectionViewController, AddEngineerV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "engineerCell", for: indexPath) as! EngineerCollectionViewCell
         cell.nameLabel.text = engineers[indexPath.row].name
         cell.companyLabel.text = engineers[indexPath.row].company
-        
+        cell.backgroundColor = UIColor.pmGreen
+                
         let remoteStatus = engineers[indexPath.row].remote == true ? "Is remote today" : "Is not remote today"
         cell.isRemoteLabel.text = "\(remoteStatus)"
         return cell

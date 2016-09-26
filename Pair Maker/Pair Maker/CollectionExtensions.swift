@@ -1,7 +1,6 @@
 import Foundation
 
 public extension MutableCollection where Indices.Iterator.Element == Index {
-    /// Shuffles the contents of this collection.
     public mutating func shuffle() {
         let c = count
         guard c > 1 else { return }
@@ -16,7 +15,6 @@ public extension MutableCollection where Indices.Iterator.Element == Index {
 }
 
 public extension Sequence {
-    /// Returns an array with the contents of this sequence, shuffled.
     public func shuffled() -> [Iterator.Element] {
         var result = Array(self)
         result.shuffle()

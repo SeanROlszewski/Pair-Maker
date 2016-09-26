@@ -1,14 +1,13 @@
-//
-//  UIKitExtensions.swift
-//  Pair_Maker
-//
-//  Created by seandorian on 9/25/16.
-//  Copyright © 2016 Gosh. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {
+    
+    static var pmLightGray: UIColor {
+        get {
+            return UIColor(red: 62/255, green: 65/255, blue: 74/255, alpha: 1)
+        }
+    }
+    
     static var pmGreen: UIColor {
         get {
             return UIColor(red: 160/255, green: 178/255, blue: 137/255, alpha: 1)

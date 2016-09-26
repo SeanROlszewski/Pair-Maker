@@ -191,6 +191,7 @@
 				TargetAttributes = {
 					47B1474A1D98402000DDB71C = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = H2983HKDVJ;
 						ProvisioningStyle = Automatic;
 					};
 					9D1B502B1D988CC600E3AB40 = {
@@ -391,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H2983HKDVJ;
 				INFOPLIST_FILE = "Pair Maker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gosh.Pair-Maker";
@@ -403,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H2983HKDVJ;
 				INFOPLIST_FILE = "Pair Maker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gosh.Pair-Maker";
