@@ -2,7 +2,7 @@ import Foundation
 import Darwin
 
 func == (lhs: Engineer, rhs: Engineer) -> Bool {
-    return lhs.name == rhs.name && lhs.company == rhs.company
+    return lhs.name == rhs.name && lhs.company == rhs.company && lhs.remote == rhs.remote
 }
 
 struct Engineer: Equatable {

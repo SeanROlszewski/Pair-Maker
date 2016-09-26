@@ -4,8 +4,8 @@ class PairListViewController: UIViewController {
     
     var engineers = [Engineer]()
     var pairs = [(Engineer, Engineer)]()
-    
-    @IBOutlet weak var pairingResultsTextView: UITextView!
+
+    @IBOutlet weak var pairsTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,25 +20,25 @@ class PairListViewController: UIViewController {
         makePairs()
     }
     
-    private func makePairs() {
+    private func makePairs() {        
         let result = generatePairs(fromEngineers: engineers) { (e1, e2) -> (Bool) in
             return e1.company != e2.company && e1.remote != e2.remote
         }
         
-        updateTextField(withPairs: result.paired, andUnpaired: result.unpaired)
+        updateTextView(withPairs: result.paired, andUnpaired: result.unpaired)
     }
     
-    private func updateTextField(withPairs pairs: [(Engineer, Engineer)], andUnpaired unpaired: [Engineer]) {
-        var pairingResults = ""
+    private func updateTextView(withPairs pairs: [(Engineer, Engineer)], andUnpaired unpaired: [Engineer]) {
+        pairsTextView.text = ""
         
         for pair in pairs {
-            pairingResults = pairingResults.appending("\(pair.0.name) is pairing with \(pair.1.name)\n")
+            let pairingResults = "\(pair.0.name) is pairing with \(pair.1.name)\n"
+            pairsTextView.text = pairsTextView.text.appending(pairingResults)
         }
         
         for unpairedEng in unpaired {
-            pairingResults = pairingResults.appending("\(unpairedEng.name) is unpaired\n")
+            let pairingResults = "\(unpairedEng.name) is unpaired\n"
+            pairsTextView.text = pairsTextView.text.appending(pairingResults)
         }
-        
-        pairingResultsTextView.text = pairingResults
     }
 }
