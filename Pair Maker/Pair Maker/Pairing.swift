@@ -41,7 +41,7 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
 
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
     
-    var engineers = engineers
+    var engineers = engineers.shuffled()
     var pairs = [(Engineer, Engineer)]()
     
     while canMakePairs(fromEngineers: engineers, withPredicate: predicate) {
@@ -64,12 +64,3 @@ func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate:
     
     return (pairs, engineers)
 }
-
-//    for pair in pairs {
-//        print("\(pair.0.name) from \(pair.0.company) is pairing with \(pair.1.name) from \(pair.1.company). ")
-//        
-//    }
-
-//    for engineer in unpaired {
-//        print("\(engineer.name) from \(engineer.company)")
-//    }

@@ -15,7 +15,6 @@ class EngineerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var companyLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }

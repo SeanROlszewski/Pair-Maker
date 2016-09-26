@@ -24,7 +24,6 @@ class EngineerCollectionViewController: UICollectionViewController, AddEngineerV
         super.viewDidLoad()
         let nib = UINib(nibName: "EngineerCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "engineerCell")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +39,6 @@ class EngineerCollectionViewController: UICollectionViewController, AddEngineerV
         return engineers.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    
-
-    }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
     }
@@ -70,7 +64,6 @@ class EngineerCollectionViewController: UICollectionViewController, AddEngineerV
             let vc = nc.viewControllers.first! as! PairListViewController
             vc.engineers = engineers
         }
-        
     }
 }
 
