@@ -89,7 +89,9 @@ extension EngineerCollectionViewController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "engineerCell", for: indexPath) as! EngineerCollectionViewCell
         cell.nameLabel.text = engineers[indexPath.row].name
         cell.companyLabel.text = engineers[indexPath.row].company
-        cell.backgroundColor = UIColor.pmGreen
+        let alpha = 1.0/(CGFloat(indexPath.row)+1.0)
+        var color = UIColor.pmGreen
+        cell.backgroundColor = color.withAlphaComponent(alpha)
         
         let radius: CGFloat = 2.0
         cell.contentView.layer.cornerRadius = radius;

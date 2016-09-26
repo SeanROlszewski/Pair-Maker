@@ -52,6 +52,7 @@ class Pair_MakerTests: XCTestCase {
     
     func testItMakesPairsFromEngineersWhoAreRemoteAndNotRemote() {
         
+        
         let engineerOne = Engineer(name: "Alfred", company: "Alphabet", remote: true)
         let engineerTwo = Engineer(name: "Billy", company: "Alphabet", remote: false)
         let engineerThree = Engineer(name: "Carl", company: "Apple", remote: true)
@@ -65,5 +66,31 @@ class Pair_MakerTests: XCTestCase {
         
         XCTAssert(result.paired.count == 2)
         XCTAssert(result.unpaired.count >= 2)
+    }
+
+
+    func test() {
+        
+            let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
+            let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
+            let engineerThree = Engineer(name: "Carl", company: "Alphabet")
+            let engineerFour = Engineer(name: "David", company: "Apple")
+            let engineerFive = Engineer(name: "Eddy", company: "Apple")
+            let engineerSix = Engineer(name: "Frank", company: "Apple")
+            let engineers = [
+         engineerOne,
+         engineerTwo,
+         engineerThree,
+         engineerFour,
+         engineerFive,
+         engineerSix]
+        
+        let predicates = [{ (engineer: Engineer, e2: Engineer) -> Bool in return true}]
+        
+        //                return engineerOne.company != engineerTwo.company
+            let result = generatePairs(fromEngineers: engineers, withPredicate: predicates)
+            XCTAssert(result.paired.count == 3)
+            XCTAssert(result.unpaired.count == 0)
+        
     }
 }

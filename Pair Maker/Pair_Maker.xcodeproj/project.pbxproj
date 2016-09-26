@@ -15,11 +15,11 @@
 		47FD67291D988019001F680E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B147571D98402100DDB71C /* LaunchScreen.storyboard */; };
 		47FD672A1D98801C001F680E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B147521D98402100DDB71C /* Main.storyboard */; };
 		9D1B50221D988C1400E3AB40 /* AddEngineerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4746F70B1D98749A00B768E3 /* AddEngineerViewController.swift */; };
-		9D1B502F1D988CC600E3AB40 /* Pair_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B502E1D988CC600E3AB40 /* Pair_MakerTests.swift */; };
 		9D1B50381D988E8B00E3AB40 /* EngineerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B50361D988E8B00E3AB40 /* EngineerCollectionViewCell.swift */; };
 		9D1B50391D988E8B00E3AB40 /* EngineerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D1B50371D988E8B00E3AB40 /* EngineerCollectionViewCell.xib */; };
 		9D1B503B1D98917200E3AB40 /* PairListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B503A1D98917200E3AB40 /* PairListViewController.swift */; };
 		9D1B503D1D98A07900E3AB40 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B503C1D98A07900E3AB40 /* UIKitExtensions.swift */; };
+		9D8F24D41D98BFAB00ACDD54 /* Pair_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B147631D98402100DDB71C /* Pair_MakerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +42,11 @@
 		47B147581D98402100DDB71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47B1475A1D98402100DDB71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47B147631D98402100DDB71C /* Pair_MakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair_MakerTests.swift; sourceTree = "<group>"; };
-		47B147651D98402100DDB71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47B1476E1D98402100DDB71C /* Pair_MakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair_MakerUITests.swift; sourceTree = "<group>"; };
 		47B147701D98402100DDB71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47B1477C1D9840E900DDB71C /* Pairing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pairing.swift; sourceTree = "<group>"; };
 		47B1477F1D98435100DDB71C /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		9D1B502C1D988CC600E3AB40 /* Pair_MakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pair_MakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D1B502E1D988CC600E3AB40 /* Pair_MakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair_MakerTests.swift; sourceTree = "<group>"; };
 		9D1B50301D988CC600E3AB40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1B50361D988E8B00E3AB40 /* EngineerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineerCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D1B50371D988E8B00E3AB40 /* EngineerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				47B147631D98402100DDB71C /* Pair_MakerTests.swift */,
-				47B147651D98402100DDB71C /* Info.plist */,
 			);
 			path = "Pair MakerTests";
 			sourceTree = "<group>";
@@ -135,7 +132,6 @@
 		9D1B502D1D988CC600E3AB40 /* Pair_MakerTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D1B502E1D988CC600E3AB40 /* Pair_MakerTests.swift */,
 				9D1B50301D988CC600E3AB40 /* Info.plist */,
 			);
 			path = Pair_MakerTests;
@@ -261,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D1B502F1D988CC600E3AB40 /* Pair_MakerTests.swift in Sources */,
+				9D8F24D41D98BFAB00ACDD54 /* Pair_MakerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +464,7 @@
 				9D1B50351D988CC600E3AB40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
