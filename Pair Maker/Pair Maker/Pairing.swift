@@ -1,28 +1,6 @@
 import Foundation
 import Darwin
 
-func == (lhs: Engineer, rhs: Engineer) -> Bool {
-    return lhs.name == rhs.name && lhs.company == rhs.company
-}
-
-struct Engineer: Equatable {
-    let name: String
-    let company: String
-    let remote: Bool
-    
-    init(name: String, company: String) {
-        self.name = name
-        self.company = company
-        self.remote = false
-    }
-    
-    init(name: String, company: String, remote: Bool) {
-        self.name = name
-        self.company = company
-        self.remote = remote
-    }
-}
-
 class Constraint<T: Equatable> {
     let name: String
     let predicate: (T, T) -> Bool
@@ -32,7 +10,6 @@ class Constraint<T: Equatable> {
         self.predicate = predicate
     }
 }
-
 
 func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
     
@@ -46,14 +23,14 @@ func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
     return (indexOne, indexTwo)
 }
 
-func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> Bool {
-    guard engineers.count >= 2 else {
+func canMakePairs<T: Equatable>(fromList items: [T], withPredicate predicate: (T, T) -> (Bool)) -> Bool {
+    guard items.count >= 2 else {
         return false
     }
     
-    for engineerOne in engineers {
-        for engineerTwo in engineers {
-            if engineerOne != engineerTwo && predicate(engineerOne, engineerTwo) {
+    for itemOne in items {
+        for itemTwo in items {
+            if itemOne != itemTwo && predicate(itemOne, itemTwo) {
                 return true
             }
         }
@@ -62,25 +39,24 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     return false
 }
 
-
-func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
+func generatePairs<T: Equatable>(fromList items: [T], withPredicate predicate: (T, T) -> (Bool)) -> (paired: [(T, T)], unpaired: [T]) {
     
-    var engineers = engineers.shuffled()
-    var pairs = [(Engineer, Engineer)]()
+    var items = items.shuffled()
+    var pairs = [(T, T)]()
     
-    while canMakePairs(fromEngineers: engineers, withPredicate: predicate) {
+    while canMakePairs(fromList: items, withPredicate: predicate) {
         
-        let indices = generateRandomIndices(withUpperBound: engineers.count)
+        let indices = generateRandomIndices(withUpperBound: items.count)
         
-        let engineerOne = engineers[indices.0]
-        let engineerTwo = engineers[indices.1]
+        let engineerOne = items[indices.0]
+        let engineerTwo = items[indices.1]
         
         if predicate(engineerOne, engineerTwo) {
             pairs.append((engineerOne, engineerTwo))
-            engineers.remove(at: engineers.index(of: engineerOne)!)
-            engineers.remove(at: engineers.index(of: engineerTwo)!)
+            items.remove(at: items.index(of: engineerOne)!)
+            items.remove(at: items.index(of: engineerTwo)!)
         }
     }
     
-    return (pairs, engineers)
+    return (pairs, items)
 }

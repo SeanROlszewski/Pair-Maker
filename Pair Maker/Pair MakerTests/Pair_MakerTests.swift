@@ -9,7 +9,7 @@ class Pair_MakerTests: XCTestCase {
         let engineerThree = Engineer(name: "Carl", company: "Apple")
         let engineerFour = Engineer(name: "David", company: "Google")
         
-        let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
+        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
             return e1.company != e2.company
         }
         
@@ -27,7 +27,7 @@ class Pair_MakerTests: XCTestCase {
         let engineerThree = Engineer(name: "Carl", company: "Apple")
         let engineerFour = Engineer(name: "David", company: "Google")
         
-        let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
+        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
             return e1.company == e2.company
         }
         
@@ -46,7 +46,7 @@ class Pair_MakerTests: XCTestCase {
         let engineerFive = Engineer(name: "Eric", company: "Facebook", remote: false)
         let engineerSix = Engineer(name: "Frank", company: "Twitter", remote: false)
         
-        let result = generatePairs(fromEngineers: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (e1, e2) in
+        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (e1, e2) in
             return e1.company != e2.company && e1.remote != e2.remote
         }
         
@@ -66,7 +66,7 @@ class Pair_MakerTests: XCTestCase {
         
         let sorted = [engineerOne, engineerTwo, engineerThree, engineerFour]
         
-        for _ in 0...4 {
+        for _ in 0...3 {
             XCTAssertNotEqual(sorted, sorted.shuffled())
         }
     }

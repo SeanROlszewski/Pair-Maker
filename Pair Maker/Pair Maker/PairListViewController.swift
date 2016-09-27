@@ -1,5 +1,9 @@
 import UIKit
 
+protocol PairListViewControllerDelegate {
+    func constraintsUpdated(_ constraints: [Constraint<Engineer>])
+}
+
 class PairListViewController: UIViewController {
     
     var engineers = [Engineer]()
@@ -14,8 +18,6 @@ class PairListViewController: UIViewController {
 
         makePairsButton.backgroundColor = UIColor.pmGreen
         makePairsButton.tintColor = UIColor.pmLightGray
-        navigationItem.leftBarButtonItem?.title = "\u{2699}" // Gear Icon in Unicode
-        
     }
     
     @IBAction func doneWasPressed() {
@@ -27,7 +29,7 @@ class PairListViewController: UIViewController {
     }
     
     private func makePairs() {        
-        let result = generatePairs(fromEngineers: engineers) { (e1, e2) -> (Bool) in
+        let result = generatePairs(fromList: engineers) { (e1, e2) -> (Bool) in
             return e1.company != e2.company && e1.remote != e2.remote
         }
         
