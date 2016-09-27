@@ -39,6 +39,18 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     return false
 }
 
+func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
+    
+    var indexOne = 0
+    var indexTwo = 0
+    repeat {
+        indexOne = Int(arc4random_uniform(UInt32(upperBound)))
+        indexTwo = Int(arc4random_uniform(UInt32(upperBound)))
+    } while indexOne == indexTwo
+    
+    return (indexOne, indexTwo)
+}
+
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
     
     var engineers = engineers.shuffled()
@@ -46,19 +58,15 @@ func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate:
     
     while canMakePairs(fromEngineers: engineers, withPredicate: predicate) {
         
-        let engineerOne = engineers[0]
+        let indices = generateRandomIndices(withUpperBound: engineers.count)
         
-        var index: Int
-        repeat {
-            index = Int(arc4random_uniform(UInt32(engineers.count)))
-        } while index == 0
-        
-        let engineerTwo = engineers[index]
+        let engineerOne = engineers[indices.0]
+        let engineerTwo = engineers[indices.1]
         
         if predicate(engineerOne, engineerTwo) {
             pairs.append((engineerOne, engineerTwo))
-            engineers.remove(at: index)
-            engineers.remove(at: 0)
+            engineers.remove(at: engineers.index(of: engineerOne)!)
+            engineers.remove(at: engineers.index(of: engineerTwo)!)
         }
     }
     
