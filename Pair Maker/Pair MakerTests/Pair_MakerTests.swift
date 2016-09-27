@@ -4,7 +4,6 @@ import XCTest
 class Pair_MakerTests: XCTestCase {
 
     func testItPairsWithOneInqualityPredicate() {
-        
         let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
         let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
         let engineerThree = Engineer(name: "Carl", company: "Apple")
@@ -23,7 +22,6 @@ class Pair_MakerTests: XCTestCase {
     }
     
     func testItPairsWithEqualityPredicate() {
-        
         let engineerOne = Engineer(name: "Alfred", company: "Alphabet")
         let engineerTwo = Engineer(name: "Billy", company: "Alphabet")
         let engineerThree = Engineer(name: "Carl", company: "Apple")
@@ -41,8 +39,6 @@ class Pair_MakerTests: XCTestCase {
     }
     
     func testItPairsWithTwoPredicates() {
-        
-        
         let engineerOne = Engineer(name: "Alfred", company: "Alphabet", remote: true)
         let engineerTwo = Engineer(name: "Billy", company: "Alphabet", remote: false)
         let engineerThree = Engineer(name: "Carl", company: "Apple", remote: true)

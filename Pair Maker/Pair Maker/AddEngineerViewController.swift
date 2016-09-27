@@ -20,20 +20,25 @@ class AddEngineerViewController: UIViewController {
         super.viewDidLoad()
         
         if let engineer = engineerToEdit {
+            navigationItem.title = "Edit Engineer"
+            deleteEngineerButton.isEnabled = true
+            deleteEngineerButton.alpha = 1.0
             nameTextField.text = engineer.name
             companyTextField.text = engineer.company
             isRemoteSwitch.isOn = engineer.remote
-            deleteEngineerButton.alpha = 1.0
-            navigationItem.title = "Edit Engineer"
         } else {
             navigationItem.title = "Add Engineer"
-            deleteEngineerButton.alpha = 0.0
             deleteEngineerButton.isEnabled = false
+            deleteEngineerButton.alpha = 0.0
         }
     }
     
     @IBAction func deleteButtonWasPressed(_ sender: UIButton) {
-        delegate?.didRemove(engineerToEdit!)
+        
+        if let engineer = engineerToEdit {
+            delegate?.didRemove(engineer)
+        }
+        
         dismissSelf()
     }
     
@@ -55,7 +60,7 @@ class AddEngineerViewController: UIViewController {
         dismissSelf()
     }
     
-    func dismissSelf() {
+    private func dismissSelf() {
         nameTextField.resignFirstResponder()
         companyTextField.resignFirstResponder()
         dismiss(animated: true, completion: nil)
