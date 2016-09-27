@@ -64,17 +64,20 @@ class EngineerCollectionViewController: UICollectionViewController {
 // MARK: AddEngineerVC Methods
 
 extension EngineerCollectionViewController: AddEngineerViewControllerDelegate {
+    
     func didAdd(_ engineer: Engineer) {
-        
-        guard engineers.index(of: engineer) == nil else {
-            return
-        }
-        
+        removeEngineer(engineer)
         engineers.append(engineer)
     }
     
     func didRemove(_ engineer: Engineer) {
-        engineers.remove(at: engineers.index(of: engineer)!)
+        removeEngineer(engineer)
+    }
+    
+    private func removeEngineer(_ engineer: Engineer) {
+        if let idx = engineers.index(of: engineer) {
+            engineers.remove(at: idx)
+        }
     }
 }
 

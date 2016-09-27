@@ -20,6 +20,7 @@
 		9D1B503B1D98917200E3AB40 /* PairListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B503A1D98917200E3AB40 /* PairListViewController.swift */; };
 		9D1B503D1D98A07900E3AB40 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B503C1D98A07900E3AB40 /* UIKitExtensions.swift */; };
 		9D8CF3EF1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */; };
+		9D8CF3F11D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */; };
 		9D8F24D41D98BFAB00ACDD54 /* Pair_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B147631D98402100DDB71C /* Pair_MakerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		9D1B503A1D98917200E3AB40 /* PairListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairListViewController.swift; sourceTree = "<group>"; };
 		9D1B503C1D98A07900E3AB40 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEngineerViewControllerTests.swift; path = "Pair MakerTests/AddEngineerViewControllerTests.swift"; sourceTree = "<group>"; };
+		9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EngineerCollectionViewControllerTest.swift; path = "Pair MakerTests/EngineerCollectionViewControllerTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		47B147421D98402000DDB71C = {
 			isa = PBXGroup;
 			children = (
+				9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */,
 				9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */,
 				47B1474D1D98402100DDB71C /* Pair Maker */,
 				47B147621D98402100DDB71C /* Pair MakerTests */,
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8CF3F11D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift in Sources */,
 				9D8F24D41D98BFAB00ACDD54 /* Pair_MakerTests.swift in Sources */,
 				9D8CF3EF1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift in Sources */,
 			);

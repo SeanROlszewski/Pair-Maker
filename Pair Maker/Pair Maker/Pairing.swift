@@ -23,6 +23,29 @@ struct Engineer: Equatable {
     }
 }
 
+class Constraint<T: Equatable> {
+    let name: String
+    let predicate: (T, T) -> Bool
+    
+    init(name: String, predicate: @escaping (T, T) -> Bool) {
+        self.name = name
+        self.predicate = predicate
+    }
+}
+
+
+func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
+    
+    var indexOne = 0
+    var indexTwo = 0
+    repeat {
+        indexOne = Int(arc4random_uniform(UInt32(upperBound)))
+        indexTwo = Int(arc4random_uniform(UInt32(upperBound)))
+    } while indexOne == indexTwo
+    
+    return (indexOne, indexTwo)
+}
+
 func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> Bool {
     guard engineers.count >= 2 else {
         return false
@@ -39,17 +62,6 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     return false
 }
 
-func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
-    
-    var indexOne = 0
-    var indexTwo = 0
-    repeat {
-        indexOne = Int(arc4random_uniform(UInt32(upperBound)))
-        indexTwo = Int(arc4random_uniform(UInt32(upperBound)))
-    } while indexOne == indexTwo
-    
-    return (indexOne, indexTwo)
-}
 
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
     
