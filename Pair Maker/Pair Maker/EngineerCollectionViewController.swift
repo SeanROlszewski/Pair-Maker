@@ -90,7 +90,7 @@ extension EngineerCollectionViewController: UICollectionViewDelegateFlowLayout {
         cell.nameLabel.text = engineers[indexPath.row].name
         cell.companyLabel.text = engineers[indexPath.row].company
         let alpha = 1.0/(CGFloat(indexPath.row)+1.0)
-        var color = UIColor.pmGreen
+        let color = UIColor.pmGreen
         cell.backgroundColor = color.withAlphaComponent(alpha)
         
         let radius: CGFloat = 2.0

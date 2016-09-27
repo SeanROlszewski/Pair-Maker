@@ -2,7 +2,7 @@ import Foundation
 import Darwin
 
 func == (lhs: Engineer, rhs: Engineer) -> Bool {
-    return lhs.name == rhs.name && lhs.company == rhs.company && lhs.remote == rhs.remote
+    return lhs.name == rhs.name && lhs.company == rhs.company
 }
 
 struct Engineer: Equatable {
@@ -38,11 +38,6 @@ func canMakePairs(fromEngineers engineers: [Engineer], withPredicate predicate: 
     
     return false
 }
-
-func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicates: [(Engineer, Engineer) -> (Bool)]) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
-    return (paired: [(Engineer, Engineer)](), unpaired: [Engineer]())
-}
-
 
 func generatePairs(fromEngineers engineers: [Engineer], withPredicate predicate: (Engineer, Engineer) -> (Bool)) -> (paired: [(Engineer, Engineer)], unpaired: [Engineer]) {
     
