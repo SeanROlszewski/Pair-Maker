@@ -29,7 +29,7 @@ class PairListViewController: UIViewController {
     }
     
     private func makePairs() {        
-        let result = generatePairs(fromList: engineers) { (e1, e2) -> (Bool) in
+        let result = generatePairs(from: engineers) { (e1, e2) -> (Bool) in
             return e1.company != e2.company && e1.remote != e2.remote
         }
         

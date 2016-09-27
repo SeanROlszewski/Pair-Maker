@@ -9,7 +9,7 @@ class Pair_MakerTests: XCTestCase {
         let engineerThree = Engineer(name: "Carl", company: "Apple")
         let engineerFour = Engineer(name: "David", company: "Google")
         
-        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
+        let result = generatePairs(from: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
             return e1.company != e2.company
         }
         
@@ -27,12 +27,12 @@ class Pair_MakerTests: XCTestCase {
         let engineerThree = Engineer(name: "Carl", company: "Apple")
         let engineerFour = Engineer(name: "David", company: "Google")
         
-        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
+        let result = generatePairs(from: [engineerOne, engineerTwo, engineerThree, engineerFour]) { (e1, e2) in
             return e1.company == e2.company
         }
         
-        XCTAssert(result.paired.count == 1, "Got \(result.paired.count) but expected 1")
-        XCTAssert(result.unpaired.count == 2, "Got \(result.unpaired.count) but expected 2")
+        XCTAssertEqual(result.paired.count, 1)
+        XCTAssertEqual(result.unpaired.count, 2)
         for pair in result.paired {
             XCTAssertEqual(pair.0.company, pair.1.company)
         }
@@ -46,7 +46,7 @@ class Pair_MakerTests: XCTestCase {
         let engineerFive = Engineer(name: "Eric", company: "Facebook", remote: false)
         let engineerSix = Engineer(name: "Frank", company: "Twitter", remote: false)
         
-        let result = generatePairs(fromList: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (e1, e2) in
+        let result = generatePairs(from: [engineerOne, engineerTwo, engineerThree, engineerFour, engineerFive, engineerSix]) { (e1, e2) in
             return e1.company != e2.company && e1.remote != e2.remote
         }
         

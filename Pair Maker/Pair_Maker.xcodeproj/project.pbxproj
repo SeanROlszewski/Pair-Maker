@@ -56,10 +56,10 @@
 		9D1B50371D988E8B00E3AB40 /* EngineerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D1B503A1D98917200E3AB40 /* PairListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairListViewController.swift; sourceTree = "<group>"; };
 		9D1B503C1D98A07900E3AB40 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
-		9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEngineerViewControllerTests.swift; path = "Pair MakerTests/AddEngineerViewControllerTests.swift"; sourceTree = "<group>"; };
-		9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EngineerCollectionViewControllerTest.swift; path = "Pair MakerTests/EngineerCollectionViewControllerTest.swift"; sourceTree = "<group>"; };
+		9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEngineerViewControllerTests.swift; sourceTree = "<group>"; };
+		9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineerCollectionViewControllerTest.swift; sourceTree = "<group>"; };
 		9D8CF3F21D9ABCE0005045D4 /* ConstraintsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsListViewController.swift; sourceTree = "<group>"; };
-		9D8CF3F41D9ABF5B005045D4 /* Engineer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engineer.swift; sourceTree = "<group>"; };
+		9D8CF3F41D9ABF5B005045D4 /* Engineer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Engineer.swift; path = ../Engineer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +83,6 @@
 		47B147421D98402000DDB71C = {
 			isa = PBXGroup;
 			children = (
-				9D8CF3F41D9ABF5B005045D4 /* Engineer.swift */,
-				9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */,
-				9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */,
 				47B1474D1D98402100DDB71C /* Pair Maker */,
 				47B147621D98402100DDB71C /* Pair MakerTests */,
 				47B1476D1D98402100DDB71C /* Pair MakerUITests */,
@@ -105,6 +102,7 @@
 		47B1474D1D98402100DDB71C /* Pair Maker */ = {
 			isa = PBXGroup;
 			children = (
+				9D8CF3F41D9ABF5B005045D4 /* Engineer.swift */,
 				47B1474E1D98402100DDB71C /* AppDelegate.swift */,
 				47B147501D98402100DDB71C /* EngineerCollectionViewController.swift */,
 				9D1B50361D988E8B00E3AB40 /* EngineerCollectionViewCell.swift */,
@@ -126,6 +124,8 @@
 		47B147621D98402100DDB71C /* Pair MakerTests */ = {
 			isa = PBXGroup;
 			children = (
+				9D8CF3F01D9AB8BF005045D4 /* EngineerCollectionViewControllerTest.swift */,
+				9D8CF3EE1D9AA96D005045D4 /* AddEngineerViewControllerTests.swift */,
 				47B147631D98402100DDB71C /* Pair_MakerTests.swift */,
 				9D1B50301D988CC600E3AB40 /* Info.plist */,
 			);

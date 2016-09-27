@@ -11,7 +11,7 @@ class Constraint<T: Equatable> {
     }
 }
 
-func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
+private func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
     
     var indexOne = 0
     var indexTwo = 0
@@ -23,7 +23,7 @@ func generateRandomIndices(withUpperBound upperBound: Int) -> (Int, Int) {
     return (indexOne, indexTwo)
 }
 
-func canMakePairs<T: Equatable>(fromList items: [T], withPredicate predicate: (T, T) -> (Bool)) -> Bool {
+private func canMakePairs<T: Equatable>(from items: [T], with predicate: (T, T) -> (Bool)) -> Bool {
     guard items.count >= 2 else {
         return false
     }
@@ -39,22 +39,22 @@ func canMakePairs<T: Equatable>(fromList items: [T], withPredicate predicate: (T
     return false
 }
 
-func generatePairs<T: Equatable>(fromList items: [T], withPredicate predicate: (T, T) -> (Bool)) -> (paired: [(T, T)], unpaired: [T]) {
+func generatePairs<T: Equatable>(from items: [T], with predicate: (T, T) -> (Bool)) -> (paired: [(T, T)], unpaired: [T]) {
     
     var items = items.shuffled()
     var pairs = [(T, T)]()
     
-    while canMakePairs(fromList: items, withPredicate: predicate) {
+    while canMakePairs(from: items, with: predicate) {
         
         let indices = generateRandomIndices(withUpperBound: items.count)
         
-        let engineerOne = items[indices.0]
-        let engineerTwo = items[indices.1]
+        let itemOne = items[indices.0]
+        let itemTwo = items[indices.1]
         
-        if predicate(engineerOne, engineerTwo) {
-            pairs.append((engineerOne, engineerTwo))
-            items.remove(at: items.index(of: engineerOne)!)
-            items.remove(at: items.index(of: engineerTwo)!)
+        if predicate(itemOne, itemTwo) {
+            pairs.append((itemOne, itemTwo))
+            items.remove(at: items.index(of: itemOne)!)
+            items.remove(at: items.index(of: itemTwo)!)
         }
     }
     
