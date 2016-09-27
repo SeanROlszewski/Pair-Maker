@@ -70,7 +70,7 @@ class Pair_MakerTests: XCTestCase {
         
         let sorted = [engineerOne, engineerTwo, engineerThree, engineerFour]
         
-        for _ in 0...5 {
+        for _ in 0...4 {
             XCTAssertNotEqual(sorted, sorted.shuffled())
         }
     }
