@@ -37,7 +37,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URO-Vw-5rU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1436" y="216"/>
+            <point key="canvasLocation" x="-1426" y="498"/>
         </scene>
         <!--Engineers-->
         <scene sceneID="5u4-xY-0P9">
@@ -99,25 +99,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UVr-jP-c6X">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFD-Nz-OEk">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rHM-4J-deI"/>
+                                </constraints>
+                                <state key="normal" title="Make Pairs"/>
+                                <connections>
+                                    <action selector="refreshWasPressed:" destination="DNQ-Bi-WhD" eventType="touchUpInside" id="7vO-s7-WmT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UVr-jP-c6X" firstAttribute="height" secondItem="18c-aT-ZSb" secondAttribute="height" id="75l-2q-n2T"/>
-                            <constraint firstItem="UVr-jP-c6X" firstAttribute="centerY" secondItem="18c-aT-ZSb" secondAttribute="centerY" id="8cF-vr-kwQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IFD-Nz-OEk" secondAttribute="trailing" constant="10" id="8An-DN-Ezc"/>
+                            <constraint firstItem="IFD-Nz-OEk" firstAttribute="leading" secondItem="18c-aT-ZSb" secondAttribute="leadingMargin" constant="10" id="9es-Mh-QDr"/>
                             <constraint firstItem="UVr-jP-c6X" firstAttribute="centerX" secondItem="18c-aT-ZSb" secondAttribute="centerX" id="FBg-XR-VE0"/>
                             <constraint firstItem="UVr-jP-c6X" firstAttribute="top" secondItem="QFb-do-8zL" secondAttribute="bottom" constant="-64" id="Msu-ZO-jcK"/>
+                            <constraint firstItem="IFD-Nz-OEk" firstAttribute="centerX" secondItem="18c-aT-ZSb" secondAttribute="centerX" id="Sd4-BM-VuJ"/>
+                            <constraint firstItem="omF-dM-hXY" firstAttribute="top" secondItem="IFD-Nz-OEk" secondAttribute="bottom" constant="35" id="cRa-Ov-IRC"/>
+                            <constraint firstItem="omF-dM-hXY" firstAttribute="top" secondItem="UVr-jP-c6X" secondAttribute="bottom" constant="129" id="osO-5S-SxS"/>
                             <constraint firstItem="UVr-jP-c6X" firstAttribute="width" secondItem="18c-aT-ZSb" secondAttribute="width" id="p9m-hG-CXd"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="The Pairs of the Day" id="R2J-xT-MLl">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="refresh" id="ErR-ZC-ndC">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" style="plain" id="ErR-ZC-ndC">
                             <connections>
-                                <action selector="refreshWasPressed:" destination="DNQ-Bi-WhD" id="dfa-Ia-Va1"/>
+                                <segue destination="vEp-Lz-vP0" kind="show" id="TmZ-ed-ak1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="NW7-4M-5dA">
@@ -128,12 +140,31 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="makePairsButton" destination="IFD-Nz-OEk" id="LUP-1m-b87"/>
                         <outlet property="pairsTextView" destination="UVr-jP-c6X" id="uVC-nh-w7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjK-HT-Nx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527" y="215"/>
+            <point key="canvasLocation" x="-556" y="498"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y0R-bx-S5U">
+            <objects>
+                <viewController id="vEp-Lz-vP0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kan-Os-Zp4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zm4-2T-1at"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zi2-ZE-CFm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFt-N3-s0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="498"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8ud-Qt-Ime">
@@ -149,7 +180,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbk-fH-qWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="-124"/>
+            <point key="canvasLocation" x="-324" y="-237"/>
         </scene>
         <!--Add Engineer-->
         <scene sceneID="LpY-0a-rDE">
@@ -241,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQ0-5Q-Ggh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="-116"/>
+            <point key="canvasLocation" x="444" y="-237"/>
         </scene>
     </scenes>
 </document>

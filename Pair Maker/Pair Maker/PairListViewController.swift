@@ -6,17 +6,23 @@ class PairListViewController: UIViewController {
     var pairs = [(Engineer, Engineer)]()
 
     @IBOutlet weak var pairsTextView: UITextView!
+    @IBOutlet weak var makePairsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makePairs()
+
+        makePairsButton.backgroundColor = UIColor.pmGreen
+        makePairsButton.tintColor = UIColor.pmLightGray
+        navigationItem.leftBarButtonItem?.title = "\u{2699}" // Gear Icon in Unicode
+        
     }
     
     @IBAction func doneWasPressed() {
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func refreshWasPressed(_ sender: UIBarButtonItem) {
+  
+    @IBAction func refreshWasPressed(_ sender: UIButton) {
         makePairs()
     }
     
